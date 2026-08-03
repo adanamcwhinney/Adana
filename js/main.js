@@ -22,14 +22,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const mailForm = document.querySelector(".mail-form");
   if (mailForm) {
     const note = mailForm.querySelector(".mail-note");
-    mailForm.addEventListener("submit", (event) => {
-      // Swap this handler for a real submit once the mailing-list provider endpoint is set on the <form action>.
+    const submitBtn = mailForm.querySelector('button[type="submit"]');
+
+    mailForm.addEventListener("submit", async (event) => {
       event.preventDefault();
-      const email = mailForm.querySelector('input[type="email"]').value;
-      if (!email) return;
-      note.dataset.state = "success";
-      note.textContent = "You're on the list — thank you!";
-      mailForm.reset();
+      submitBtn.disabled = true;
+      note.dataset.state = "pending";
+      note.textContent = "Sending…";
+
+      try {
+        const response = await fetch(mailForm.action, {
+          method: "POST",
+          body: new FormData(mailForm),
+          headers: { Accept: "application/json" },
+        });
+
+        if (response.ok) {
+          note.dataset.state = "success";
+          note.textContent = "You're on the list — thank you!";
+          mailForm.reset();
+        } else {
+          const data = await response.json().catch(() => null);
+          const message = data?.errors?.map((e) => e.message).join(", ");
+          note.dataset.state = "error";
+          note.textContent = message || "Something went wrong — please try again.";
+        }
+      } catch {
+        note.dataset.state = "error";
+        note.textContent = "Something went wrong — please try again.";
+      } finally {
+        submitBtn.disabled = false;
+      }
     });
   }
 });

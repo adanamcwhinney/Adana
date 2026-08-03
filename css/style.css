@@ -398,6 +398,7 @@ section { padding: clamp(4rem, 9vw, 7rem) 0; }
   transition: background .2s ease;
 }
 .mail-form button:hover { background: #0f1615; }
+.mail-form button:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
 .mail-note {
   width: 100%;
   font-size: 0.8rem;
@@ -405,6 +406,7 @@ section { padding: clamp(4rem, 9vw, 7rem) 0; }
   color: rgba(245,239,230,0.85);
 }
 .mail-note[data-state="success"] { color: var(--ink); font-weight: 600; }
+.mail-note[data-state="error"] { color: var(--ink); font-weight: 600; text-decoration: underline; }
 
 /* ---------- Footer ---------- */
 .site-footer {
