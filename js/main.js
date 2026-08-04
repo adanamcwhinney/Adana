@@ -1,3 +1,21 @@
+// Photo credits for the homepage Gallery section.
+//
+// To credit a photo:
+//   1. Give its <img> a data-photo="some-filename.jpg" attribute (see index.html).
+//   2. Add a "some-filename.jpg": { name, handle, url } entry below, or point it
+//      at an existing photographer object (like GABBY_Q) if they took multiple photos.
+// Images without a matching entry simply render no caption.
+const GABBY_Q = { name: "Gabby Q", handle: "@geqfilmm", url: "https://www.instagram.com/geqfilmm" };
+
+const photoCredits = {
+  "stage-purple.jpg": GABBY_Q,
+  "close-up-1.jpg": GABBY_Q,
+  "gig-6A3A4645.jpg": GABBY_Q,
+  "about-6A3A4395.jpg": GABBY_Q,
+  "red-blue.jpg": GABBY_Q,
+  "vanity-square.jpg": GABBY_Q,
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.querySelector(".nav-toggle");
   const links = document.querySelector(".nav-links");
@@ -18,6 +36,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  document.querySelectorAll(".gallery-item").forEach((item) => {
+    const img = item.querySelector("img[data-photo]");
+    const caption = item.querySelector(".photo-credit");
+    const credit = img && photoCredits[img.dataset.photo];
+    if (!credit || !caption) return;
+
+    caption.textContent = "Photo: ";
+    const link = document.createElement("a");
+    link.href = credit.url;
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.textContent = credit.handle;
+    caption.appendChild(link);
+  });
 
   const mailForm = document.querySelector(".mail-form");
   if (mailForm) {
