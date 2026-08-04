@@ -1,7 +1,9 @@
-// Photo credits for the homepage Gallery section.
+// Photo credits, used anywhere on the site a photo needs a "Photo: @handle" caption.
 //
 // To credit a photo:
-//   1. Give its <img> a data-photo="some-filename.jpg" attribute (see index.html).
+//   1. Wrap its <img> in a <figure> with a <figcaption class="photo-credit"></figcaption>,
+//      and give the <img> a data-photo="some-filename.jpg" attribute (see the Gallery
+//      and About section in index.html for examples).
 //   2. Add a "some-filename.jpg": { name, handle, url } entry below, or point it
 //      at an existing photographer object (like GABBY_Q) if they took multiple photos.
 // Images without a matching entry simply render no caption.
@@ -14,6 +16,7 @@ const photoCredits = {
   "about-6A3A4395.jpg": GABBY_Q,
   "red-blue.jpg": GABBY_Q,
   "vanity-square.jpg": GABBY_Q,
+  "adana-guitar.jpg": GABBY_Q,
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -37,10 +40,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  document.querySelectorAll(".gallery-item").forEach((item) => {
-    const img = item.querySelector("img[data-photo]");
-    const caption = item.querySelector(".photo-credit");
-    const credit = img && photoCredits[img.dataset.photo];
+  document.querySelectorAll("img[data-photo]").forEach((img) => {
+    const caption = img.closest("figure")?.querySelector(".photo-credit");
+    const credit = photoCredits[img.dataset.photo];
     if (!credit || !caption) return;
 
     caption.textContent = "Photo: ";
