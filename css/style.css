@@ -283,11 +283,12 @@ section { padding: clamp(6rem, 13vw, 10rem) 0; }
   gap: var(--gap);
   align-items: center;
 }
-.about-photo {
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 6px;
-  overflow: hidden;
 }
-.about-photo img { width: 100%; height: 100%; object-fit: cover; }
 .about-copy p { margin-bottom: 1.1rem; color: rgba(245,239,230,0.9); }
 .about-copy .meta {
   margin-top: 1.6rem;
@@ -561,7 +562,7 @@ section { padding: clamp(6rem, 13vw, 10rem) 0; }
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .about-grid { grid-template-columns: 1fr; }
-  .about-photo { max-height: 420px; }
+  .about-photo img { max-height: 420px; }
   .video-grid { grid-template-columns: repeat(2, 1fr); }
   .gallery { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 160px; }
 }
