@@ -17,6 +17,8 @@ const photoCredits = {
   "red-blue.jpg": GABBY_Q,
   "vanity-square.jpg": GABBY_Q,
   "adana-guitar.jpg": GABBY_Q,
+  "close-up-3.jpg": GABBY_Q,
+  "moon-4g.jpeg": GABBY_Q,
 };
 
 document.addEventListener("DOMContentLoaded", () => {

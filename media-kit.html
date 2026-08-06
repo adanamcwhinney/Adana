@@ -40,7 +40,8 @@
 
     <div class="kit-block about-grid">
       <figure class="about-photo">
-        <img src="images/vanity-square.jpg" alt="Portrait of Adana">
+        <img src="images/vanity-square.jpg" data-photo="vanity-square.jpg" alt="Portrait of Adana">
+        <figcaption class="photo-credit"></figcaption>
       </figure>
       <div>
         <span class="eyebrow">Biography</span>
@@ -91,10 +92,22 @@
       <span class="eyebrow">Press Photos</span>
       <h2>Downloadable images</h2>
       <div class="gallery" style="grid-template-columns:repeat(4,1fr); grid-auto-rows:240px; margin-bottom:1.5rem;">
-        <a href="images/stage-purple.jpg" download class="tall"><img src="images/stage-purple.jpg" alt="Adana performing live on stage under purple lighting"></a>
-        <a href="images/close-up-3.jpg" download><img src="images/close-up-3.jpg" alt="Close-up portrait of Adana"></a>
-        <a href="images/moon-4g.jpeg" download><img src="images/moon-4g.jpeg" alt="Adana outdoors at night"></a>
-        <a href="images/red-blue.jpg" download class="tall"><img src="images/red-blue.jpg" alt="Adana under red and blue stage lighting"></a>
+        <figure class="gallery-item tall">
+          <a href="images/stage-purple.jpg" download><img src="images/stage-purple.jpg" data-photo="stage-purple.jpg" alt="Adana performing live on stage under purple lighting"></a>
+          <figcaption class="photo-credit"></figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <a href="images/close-up-3.jpg" download><img src="images/close-up-3.jpg" data-photo="close-up-3.jpg" alt="Close-up portrait of Adana"></a>
+          <figcaption class="photo-credit"></figcaption>
+        </figure>
+        <figure class="gallery-item">
+          <a href="images/moon-4g.jpeg" download><img src="images/moon-4g.jpeg" data-photo="moon-4g.jpeg" alt="Adana outdoors at night"></a>
+          <figcaption class="photo-credit"></figcaption>
+        </figure>
+        <figure class="gallery-item tall">
+          <a href="images/red-blue.jpg" download><img src="images/red-blue.jpg" data-photo="red-blue.jpg" alt="Adana under red and blue stage lighting"></a>
+          <figcaption class="photo-credit"></figcaption>
+        </figure>
       </div>
       <div class="download-list">
         <a class="btn btn-outline" href="images/stage-purple.jpg" download>Download Stage Photo</a>
