@@ -8,8 +8,10 @@
 <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Jost:wght@400;500;600&display=swap" as="style">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Jost:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
+<link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
 
@@ -40,7 +42,10 @@
 
     <div class="kit-block about-grid">
       <figure class="about-photo">
-        <img src="images/vanity-square.jpg" data-photo="vanity-square.jpg" alt="Portrait of Adana">
+        <picture>
+          <source srcset="images/web/vanity-square.webp" type="image/webp">
+          <img src="images/web/vanity-square.jpg" data-photo="vanity-square.jpg" alt="Portrait of Adana" loading="lazy">
+        </picture>
         <figcaption class="photo-credit"></figcaption>
       </figure>
       <div>
@@ -93,19 +98,31 @@
       <h2>Downloadable images</h2>
       <div class="gallery press-gallery">
         <figure class="gallery-item tall">
-          <a href="images/stage-purple.jpg" download><img src="images/stage-purple.jpg" data-photo="stage-purple.jpg" alt="Adana performing live on stage under purple lighting"></a>
+          <a href="images/stage-purple.jpg" download><picture>
+            <source srcset="images/web/stage-purple.webp" type="image/webp">
+            <img src="images/web/stage-purple.jpg" data-photo="stage-purple.jpg" alt="Adana performing live on stage under purple lighting" loading="lazy">
+          </picture></a>
           <figcaption class="photo-credit"></figcaption>
         </figure>
         <figure class="gallery-item">
-          <a href="images/close-up-3.jpg" download><img src="images/close-up-3.jpg" data-photo="close-up-3.jpg" alt="Close-up portrait of Adana"></a>
+          <a href="images/close-up-3.jpg" download><picture>
+            <source srcset="images/web/close-up-3.webp" type="image/webp">
+            <img src="images/web/close-up-3.jpg" data-photo="close-up-3.jpg" alt="Close-up portrait of Adana" loading="lazy">
+          </picture></a>
           <figcaption class="photo-credit"></figcaption>
         </figure>
         <figure class="gallery-item">
-          <a href="images/moon-4g.jpeg" download><img src="images/moon-4g.jpeg" data-photo="moon-4g.jpeg" alt="Adana outdoors at night"></a>
+          <a href="images/moon-4g.jpeg" download><picture>
+            <source srcset="images/web/moon-4g.webp" type="image/webp">
+            <img src="images/web/moon-4g.jpg" data-photo="moon-4g.jpeg" alt="Adana outdoors at night" loading="lazy">
+          </picture></a>
           <figcaption class="photo-credit"></figcaption>
         </figure>
         <figure class="gallery-item tall">
-          <a href="images/red-blue.jpg" download><img src="images/red-blue.jpg" data-photo="red-blue.jpg" alt="Adana under red and blue stage lighting"></a>
+          <a href="images/red-blue.jpg" download><picture>
+            <source srcset="images/web/red-blue.webp" type="image/webp">
+            <img src="images/web/red-blue.jpg" data-photo="red-blue.jpg" alt="Adana under red and blue stage lighting" loading="lazy">
+          </picture></a>
           <figcaption class="photo-credit"></figcaption>
         </figure>
       </div>
@@ -184,6 +201,6 @@
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script src="js/main.min.js" defer></script>
 </body>
 </html>
