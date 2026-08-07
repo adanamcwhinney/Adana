@@ -274,6 +274,7 @@ section { padding: clamp(6rem, 13vw, 10rem) 0; }
 .section-sand { background: var(--sand); }
 .section-dark { background: var(--ink); color: var(--cream); }
 .section-cream { background: var(--cream); }
+main.section-cream { padding: clamp(6rem, 13vw, 10rem) 0; }
 .section-dark .eyebrow { color: var(--terracotta); }
 .section-dark .photo-credit { color: rgba(245, 239, 230, 0.6); }
 
